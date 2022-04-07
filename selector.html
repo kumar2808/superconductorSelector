@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" class="fa-events-icons-ready">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <!-- HTML Defaults Broweser -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap Stylesheet -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="../assets/img/Physics.ico" type="icon">
+    <!-- Project Style Sheet -->
+    <link rel="stylesheet" href="../css/balancer_style.css">
+    <!-- Meta Title, Description and Canonical URL Starts --->
+    <title>Superconductor Selector</title>
+    <!-- Meta Title, Description and Canonical URL ENDS --->
+    <script type="text/javascript" src="../js/data.json"></script>
+  </head>
+  <body onload="load()">
+    <nav class="navbar fixed-top navbar-expand-sm">
+      <a class="navbar-brand" href="../index.html">Home</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+      </button>
+    </nav>
+    <div class="container" style="height: auto !important;">
+      <div class="card c1">
+        <div class="card-header">
+          <h1 class="h1">Superconductor Selector</h1>
+        </div>
+        <div class="card-body"></div>
+        <div class="d-flex justify-content-center">
+          <form onsubmit="doSelection();">
+            <strong>Enter the values as per requirement</strong>
+            <div class="form-row align-items-center">
+              <div class="col-auto">
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><strong>Enter the class</strong></div>
+                  </div>
+                  <select class="select form-control inlineFormInputGroup" id="inputEle" onchange="GetSelectedTextValue(this)" name="ele">
+                    <option selected="selected">Element</option>
+                    <option>Compound</option>
+                    <option>Cuprate</option>
+                    <option>Iron-based</option>
+                  </select>
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><strong>Enter the type</strong></div>
+                  </div>
+                  <select class="select form-control inlineFormInputGroup" id="inputType" onchange="GetSelectedTextValue(this)" name="typed">
+                    <option selected="selected">I</option>
+                    <option>II</option>
+                    <option>Not-Applicable</option>
+                  </select>
+                </div>
+                <div class="input-group mb-2">
+                  <div class="input-group-prepend">
+                    <div class="input-group-text"><strong>BCS Required?</strong></div>
+                  </div>
+                  <select class="select form-control inlineFormInputGroup" id="inputBCS" onchange="GetSelectedTextValue(this)" name="bcs">
+                    <option selected="selected">Yes</option>
+                    <option>No</option>
+                    <option>Not-Applicable</option>
+                  </select>
+                </div>
+                <div id="table">
+                  <pre>
+                    <code>
+                      <table>
+                       <thead>
+                         <tr>
+                           <th>S.No</th>
+                           <th>Substance</th>
+                           <th>T<sub>c</sub>(K)</th>
+                           <th>H<sub>c</sub>(T)</th>
+                         </tr>
+                       </thead>
+                       <tbody id="tableBody">
+                       </tbody>
+                       </table>
+                    </code>
+                  </pre>
+                </div>  
+              </div>
+            </div>
+            <div class=" center col mt-2 ">
+              &nbsp;&nbsp;&nbsp;&nbsp;	
+              <input id="botton1" class="btn btn-danger mb-2" type="button" onclick="myFunction()" value="Clear">
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <button type="button" class="btn btn-primary mb-2" onclick="doSelection();">Calculate</button>
+            </div>
+          </form>
+        </div>
+        <ul class="messages">
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-header">
+          <h2 class="h2">Description</h2>
+        </div>
+        <div class="card-body">
+          <p>The table above shows some of the parameters of common superconductors.T<sub>C</sub> is the highest reported transition temperature in kelvins and H<sub>C</sub> is a critical magnetic field in tesla. "BCS" means whether or not the superconductivity is explained within the BCS theory.</p>
+          <br />
+        </div>
+      </div>
+    </div>
+    <script>
+      function myFunction() {
+      	document.getElementById("tableBody").innerHTML="";
+      }
+    </script>
+  </body>
+  <script src="../js/selector.js"></script>
+</html>
